@@ -170,8 +170,9 @@ export class DarkThemeFactory implements ThemeFactory {
 export function renderScreen(factory: ThemeFactory): void {
   const button = factory.createButton();
   const alert = factory.createAlert();
+  const message = "Operación completada";
   const buttonLabel = button.render();
-  const alertLabel = alert.render("Operación completada");
+  const alertLabel = alert.render(message);
   console.log("%c%s", colors.value, buttonLabel);
   console.log("%c%s", colors.value, alertLabel);
 }
