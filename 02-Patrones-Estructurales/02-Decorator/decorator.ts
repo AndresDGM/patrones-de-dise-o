@@ -202,3 +202,28 @@ export class MeatDecorator extends ArepaDecorator {
     return this.arepa.getPrice() + 3500;
   }
 }
+
+/**
+ * Imprime una arepa decorada con su descripción y precio final.
+ *
+ * @param orderName Nombre usado para identificar el pedido.
+ * @param arepa Arepa que puede tener uno o varios decoradores.
+ * @returns No devuelve ningún valor; imprime el pedido en consola.
+ */
+export function printOrder(orderName: string, arepa: Arepa): void {
+  console.log("%c%s", colors.label, orderName);
+  console.log("  Descripción: %s", arepa.getDescription());
+  console.log("  Precio total: $%s", arepa.getPrice());
+}
+
+// Ejecución
+const cheeseArepa = new CheeseDecorator(
+  new BasicArepa("Arepa de maíz", 6000),
+);
+const cheeseAndEggArepa = new EggDecorator(cheeseArepa);
+const completeArepa = new MeatDecorator(cheeseAndEggArepa);
+
+console.log("%cPedidos de la arepería", colors.title);
+printOrder("Pedido 1", cheeseArepa);
+printOrder("Pedido 2", cheeseAndEggArepa);
+printOrder("Pedido 3", completeArepa);
