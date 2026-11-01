@@ -71,3 +71,38 @@ export class BasicArepa implements Arepa {
     return this.price;
   }
 }
+
+/**
+ * Base de los decoradores que delega las operaciones en una arepa envuelta.
+ */
+export abstract class ArepaDecorator implements Arepa {
+  /** Arepa que recibe las nuevas responsabilidades. */
+  protected readonly arepa: Arepa;
+
+  /**
+   * Crea un decorador para una arepa existente.
+   *
+   * @param arepa Arepa que será envuelta.
+   */
+  constructor(arepa: Arepa) {
+    this.arepa = arepa;
+  }
+
+  /**
+   * Delega la descripción en la arepa envuelta.
+   *
+   * @returns La descripción de la arepa envuelta.
+   */
+  getDescription(): string {
+    return this.arepa.getDescription();
+  }
+
+  /**
+   * Delega el precio en la arepa envuelta.
+   *
+   * @returns El precio de la arepa envuelta.
+   */
+  getPrice(): number {
+    return this.arepa.getPrice();
+  }
+}
