@@ -94,3 +94,110 @@ export class TreeTypeFactory {
     return this.treeTypes.size;
   }
 }
+
+/**
+ * Representa un árbol concreto con posición y tipo compartido.
+ */
+export class Tree {
+  /** Posición horizontal del árbol. */
+  readonly x: number;
+
+  /** Posición vertical del árbol. */
+  readonly y: number;
+
+  /** Tipo compartido del árbol. */
+  readonly treeType: TreeType;
+
+  /**
+   * Crea un árbol.
+   *
+   * @param x Posición horizontal.
+   * @param y Posición vertical.
+   * @param treeType Tipo compartido del árbol.
+   */
+  constructor(x: number, y: number, treeType: TreeType) {
+    this.x = x;
+    this.y = y;
+    this.treeType = treeType;
+  }
+
+  /**
+   * Delega el dibujo en el tipo compartido.
+   *
+   * @returns No devuelve ningún valor.
+   */
+  draw(): void {
+    this.treeType.draw(this.x, this.y);
+  }
+}
+
+/**
+ * Mantiene los árboles del bosque y los planta usando la fábrica.
+ */
+export class Forest {
+  /** Árboles plantados en el bosque. */
+  private readonly trees: Tree[] = [];
+
+  /** Fábrica que reutiliza los tipos de árbol. */
+  private readonly treeTypeFactory: TreeTypeFactory;
+
+  /**
+   * Crea un bosque.
+   *
+   * @param treeTypeFactory Fábrica de tipos compartidos.
+   */
+  constructor(treeTypeFactory = new TreeTypeFactory()) {
+    this.treeTypeFactory = treeTypeFactory;
+  }
+
+  /**
+   * Planta un árbol en el bosque.
+   *
+   * @param x Posición horizontal.
+   * @param y Posición vertical.
+   * @param name Nombre de la especie.
+   * @param color Color de la especie.
+   * @param texture Textura de la especie.
+   * @returns No devuelve ningún valor.
+   */
+  plantTree(
+    x: number,
+    y: number,
+    name: string,
+    color: string,
+    texture: string,
+  ): void {
+    const treeType = this.treeTypeFactory.getTreeType(name, color, texture);
+    this.trees.push(new Tree(x, y, treeType));
+  }
+
+  /**
+   * Dibuja los árboles del bosque.
+   *
+   * @param limit Cantidad máxima de árboles que se dibujarán.
+   * @returns No devuelve ningún valor.
+   */
+  draw(limit = this.trees.length): void {
+    for (const tree of this.trees.slice(0, limit)) {
+      tree.draw();
+    }
+  }
+
+  /**
+   * Cuenta los árboles plantados.
+   *
+   * @returns Cantidad de árboles del bosque.
+   */
+  getTreeCount(): number {
+    return this.trees.length;
+  }
+
+  /**
+   * Cuenta los tipos compartidos creados por el bosque.
+   *
+   * @returns Cantidad de tipos únicos.
+   */
+  getTreeTypeCount(): number {
+    return this.treeTypeFactory.getCount();
+  }
+}
