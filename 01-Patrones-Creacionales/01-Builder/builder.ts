@@ -108,7 +108,7 @@ export class HttpRequestBuilder {
    * @returns El mismo builder para encadenar.
    */
   setHeader(key: string, value: string): this {
-    this.request.headers[key] = value;
+    this.request.headers = { ...this.request.headers, [key]: value };
     return this;
   }
 
