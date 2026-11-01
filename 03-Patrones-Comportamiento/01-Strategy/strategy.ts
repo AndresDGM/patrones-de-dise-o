@@ -70,3 +70,53 @@ export class BlackFridayDiscount implements DiscountStrategy {
     return total * 0.7;
   }
 }
+
+/**
+ * Representa un carrito que delega el cálculo del descuento en una estrategia.
+ */
+export class ShoppingCart {
+  /** Estrategia que se aplicará al total actual. */
+  private strategy: DiscountStrategy;
+
+  /** Precios de los productos agregados al carrito. */
+  private readonly items: number[] = [];
+
+  /**
+   * Crea un carrito con la estrategia indicada o sin descuento.
+   *
+   * @param strategy Estrategia inicial del carrito.
+   */
+  constructor(strategy: DiscountStrategy = new NoDiscount()) {
+    this.strategy = strategy;
+  }
+
+  /**
+   * Cambia la estrategia que usará el carrito.
+   *
+   * @param strategy Nueva estrategia de descuento.
+   * @returns No devuelve ningún valor.
+   */
+  setStrategy(strategy: DiscountStrategy): void {
+    this.strategy = strategy;
+  }
+
+  /**
+   * Agrega el precio de un producto al carrito.
+   *
+   * @param price Precio del producto.
+   * @returns No devuelve ningún valor.
+   */
+  addItem(price: number): void {
+    this.items.push(price);
+  }
+
+  /**
+   * Calcula el subtotal y aplica la estrategia actual.
+   *
+   * @returns Total final con la estrategia aplicada.
+   */
+  checkout(): number {
+    const subtotal = this.items.reduce((total, price) => total + price, 0);
+    return this.strategy.apply(subtotal);
+  }
+}
