@@ -29,4 +29,5 @@ deno check ruta/al/archivo.ts
 
 | Patrón   | Categoría      | Rama       | Descripción                                                                                              |
 | -------- | -------------- | ---------- | -------------------------------------------------------------------------------------------------------- |
-| Strategy | Comportamiento | `strategy` | Cambia en tiempo de ejecución entre ningún descuento, descuento estudiantil y descuento de Black Friday. |
+| Strategy  | Comportamiento | `strategy`  | Cambia en tiempo de ejecución entre ningún descuento, descuento estudiantil y descuento de Black Friday. |
+| Builder   | Creacional     | `Builder`   | Construye peticiones HTTP con campos opcionales mediante métodos encadenables. |
