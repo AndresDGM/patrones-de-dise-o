@@ -78,7 +78,11 @@ export class StoppedState implements PlayerState {
    * @returns No devuelve ningún valor.
    */
   stop(player: MusicPlayer): void {
-    console.log("%cLa canción ya está detenida: %s", colors.label, player.currentSong);
+    console.log(
+      "%cLa canción ya está detenida: %s",
+      colors.label,
+      player.currentSong,
+    );
   }
 }
 
@@ -145,7 +149,11 @@ export class PausedState implements PlayerState {
    * @returns No devuelve ningún valor.
    */
   pause(player: MusicPlayer): void {
-    console.log("%cLa canción ya está pausada: %s", colors.label, player.currentSong);
+    console.log(
+      "%cLa canción ya está pausada: %s",
+      colors.label,
+      player.currentSong,
+    );
   }
 
   /**
