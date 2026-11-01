@@ -38,3 +38,4 @@ deno check ruta/al/archivo.ts
 | Observer | Comportamiento | `observer` | Notifica a los fans cuando se liberan boletas por correo, SMS y aplicación. |
 | State | Comportamiento | `state` | Encapsula las respuestas de un reproductor según esté detenido, reproduciendo o pausado. |
 | Factory Method | Creacional | `factory-method` | Permite que cada servicio cree el vehículo adecuado para entregar un pedido según la ciudad. |
+| Flyweight        | Estructural    | `flyweight`        | Comparte los datos de las especies de árboles para dibujar un bosque con menos objetos repetidos.            |
