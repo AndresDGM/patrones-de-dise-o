@@ -140,7 +140,8 @@ export class HttpRequestBuilder {
    * @returns La petición HTTP final.
    */
   build(): HttpRequest {
-    return this.request;
+    const built = this.request;
+    return built;
   }
 }
 
