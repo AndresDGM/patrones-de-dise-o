@@ -23,3 +23,31 @@ export interface CurrencyFormatter {
    */
   format(amount: number): string;
 }
+
+/**
+ * Adapta Intl.NumberFormat a la interfaz CurrencyFormatter.
+ */
+export class IntlCurrencyAdapter implements CurrencyFormatter {
+  /** Formateador nativo configurado para pesos colombianos. */
+  private readonly formatter: Intl.NumberFormat;
+
+  /**
+   * Crea el adaptador con el formato monetario de Colombia.
+   */
+  constructor() {
+    this.formatter = new Intl.NumberFormat("es-CO", {
+      style: "currency",
+      currency: "COP",
+    });
+  }
+
+  /**
+   * Delega el formato en la instancia de Intl.NumberFormat.
+   *
+   * @param amount Monto que se desea formatear.
+   * @returns El monto formateado en pesos colombianos.
+   */
+  format(amount: number): string {
+    return this.formatter.format(amount);
+  }
+}
