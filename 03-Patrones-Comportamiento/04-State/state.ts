@@ -236,29 +236,41 @@ export class MusicPlayer {
 }
 
 /**
- * Ejecuta la secuencia de botones del ejercicio.
+ * Muestra un menú para controlar el reproductor.
  *
  * @returns No devuelve ningún valor; imprime cada transición en consola.
  */
 export function main(): void {
   const player = new MusicPlayer("Canción de la UCEVA");
+  const inputActions = [...Deno.args];
+  const defaultActions = ["play", "pause", "play", "stop", "pause"];
+  let action = prompt(
+    "Elige una acción (play/pause/stop/exit):",
+  ) ?? inputActions.shift() ?? defaultActions.shift() ?? "exit";
 
-  console.log("%cSecuencia del reproductor", colors.title);
+  console.log("%cMenú del reproductor", colors.title);
 
-  player.play();
-  console.log("%cEstado: %s", colors.label, player.getStateName());
+  while (action !== "exit") {
+    switch (action) {
+      case "play":
+        player.play();
+        break;
+      case "pause":
+        player.pause();
+        break;
+      case "stop":
+        player.stop();
+        break;
+      default:
+        console.log("%cOpción no válida", colors.label);
+    }
 
-  player.pause();
-  console.log("%cEstado: %s", colors.label, player.getStateName());
+    console.log("%cEstado: %s", colors.label, player.getStateName());
 
-  player.play();
-  console.log("%cEstado: %s", colors.label, player.getStateName());
-
-  player.stop();
-  console.log("%cEstado: %s", colors.label, player.getStateName());
-
-  player.pause();
-  console.log("%cEstado: %s", colors.label, player.getStateName());
+    action = prompt(
+      "Elige una acción (play/pause/stop/exit):",
+    ) ?? inputActions.shift() ?? defaultActions.shift() ?? "exit";
+  }
 }
 
 // Ejecución
