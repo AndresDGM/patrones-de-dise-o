@@ -27,6 +27,7 @@ deno check ruta/al/archivo.ts
 
 ## Patrones utilizados
 
-| Patrón   | Categoría      | Rama       | Descripción                                                                                              |
-| -------- | -------------- | ---------- | -------------------------------------------------------------------------------------------------------- |
-| Strategy | Comportamiento | `strategy` | Cambia en tiempo de ejecución entre ningún descuento, descuento estudiantil y descuento de Black Friday. |
+| Patrón    | Categoría      | Rama        | Descripción                                                                                              |
+| --------- | -------------- | ----------- | -------------------------------------------------------------------------------------------------------- |
+| Decorator | Estructural    | `decorator` | Combina adiciones de queso, huevo y carne en arepas sin crear una subclase para cada combinación.        |
+| Strategy  | Comportamiento | `strategy`  | Cambia en tiempo de ejecución entre ningún descuento, descuento estudiantil y descuento de Black Friday. |
