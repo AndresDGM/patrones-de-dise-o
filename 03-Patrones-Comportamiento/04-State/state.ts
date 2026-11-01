@@ -159,3 +159,70 @@ export class PausedState implements PlayerState {
     player.setState(new StoppedState());
   }
 }
+
+/**
+ * Reproductor que delega sus botones en el estado actual.
+ */
+export class MusicPlayer {
+  /** Canción actual del reproductor. */
+  readonly currentSong: string;
+
+  /** Estado que decide el comportamiento de los botones. */
+  private state: PlayerState;
+
+  /**
+   * Crea un reproductor detenido.
+   *
+   * @param currentSong Canción que se reproducirá.
+   */
+  constructor(currentSong: string) {
+    this.currentSong = currentSong;
+    this.state = new StoppedState();
+  }
+
+  /**
+   * Cambia el estado actual del reproductor.
+   *
+   * @param state Nuevo estado.
+   * @returns No devuelve ningún valor.
+   */
+  setState(state: PlayerState): void {
+    this.state = state;
+  }
+
+  /**
+   * Delega el botón reproducir en el estado actual.
+   *
+   * @returns No devuelve ningún valor.
+   */
+  play(): void {
+    this.state.play(this);
+  }
+
+  /**
+   * Delega el botón pausar en el estado actual.
+   *
+   * @returns No devuelve ningún valor.
+   */
+  pause(): void {
+    this.state.pause(this);
+  }
+
+  /**
+   * Delega el botón detener en el estado actual.
+   *
+   * @returns No devuelve ningún valor.
+   */
+  stop(): void {
+    this.state.stop(this);
+  }
+
+  /**
+   * Obtiene el nombre del estado actual.
+   *
+   * @returns Nombre de la clase del estado.
+   */
+  getStateName(): string {
+    return this.state.constructor.name;
+  }
+}
