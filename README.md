@@ -30,4 +30,4 @@ deno check ruta/al/archivo.ts
 | Patrón   | Categoría      | Rama       | Descripción                                                                                              |
 | -------- | -------------- | ---------- | -------------------------------------------------------------------------------------------------------- |
 | Strategy  | Comportamiento | `strategy`  | Cambia en tiempo de ejecución entre ningún descuento, descuento estudiantil y descuento de Black Friday. |
-| Command   | Comportamiento | `Command`   | Encapsula acciones de un editor de texto para permitir deshacer. |
+| Command   | Comportamiento | `Command`   | Encapsula acciones de un editor de texto para permitir deshacer |
