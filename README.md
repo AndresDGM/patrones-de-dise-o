@@ -1,6 +1,7 @@
 # Taller de Patrones de Diseño
 
-Ejercicios sencillos de patrones de diseño implementados con TypeScript y Deno para la asignatura de Arquitectura de Software de la UCEVA.
+Ejercicios sencillos de patrones de diseño implementados con TypeScript y Deno
+para la asignatura de Arquitectura de Software de la UCEVA.
 
 ## Integrantes
 
@@ -26,5 +27,6 @@ deno check ruta/al/archivo.ts
 
 ## Patrones utilizados
 
-| Patrón | Categoría | Rama | Descripción |
-| --- | --- | --- | --- |
+| Patrón  | Categoría   | Rama      | Descripción                                                                                                  |
+| ------- | ----------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| Adapter | Estructural | `adapter` | Adapta `Intl.NumberFormat` para mostrar precios en pesos colombianos sin acoplar el cliente a la API nativa. |
