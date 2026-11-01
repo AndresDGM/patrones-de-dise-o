@@ -35,5 +35,6 @@ deno check ruta/al/archivo.ts
 | Builder | Creacional | `Builder` | Construye peticiones HTTP con campos opcionales mediante metodos encadenables. |
 | Abstract Factory | Creacional | `Abstract_Factory` | Crea familias de componentes de tema claro y oscuro sin mezclarlos. |
 | Command | Comportamiento | `Command` | Encapsula acciones de un editor de texto para permitir deshacer. |
+| Observer | Comportamiento | `observer` | Notifica a los fans cuando se liberan boletas por correo, SMS y aplicación. |
 | State | Comportamiento | `state` | Encapsula las respuestas de un reproductor según esté detenido, reproduciendo o pausado. |
 | Factory Method | Creacional | `factory-method` | Permite que cada servicio cree el vehículo adecuado para entregar un pedido según la ciudad. |
