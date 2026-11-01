@@ -5,7 +5,7 @@ para la asignatura de Arquitectura de Software de la UCEVA.
 
 ## Integrantes
 
-<!-- completar integrantes -->
+- Andrés David Guevara Martínez
 
 ## Requisitos
 
@@ -24,13 +24,15 @@ También puedes validar un archivo con:
 ```bash
 deno check ruta/al/archivo.ts
 ```
+
 ## Patrones utilizados
 
-| Patrón | Categoría | Rama | Descripción |
-| --- | --- | --- | --- |
-| Adapter | Estructural | `adapter` | Adapta `Intl.NumberFormat` para mostrar precios en pesos colombianos sin acoplar el cliente a la API nativa. |
-| Decorator | Estructural | `decorator` | Combina adiciones de queso, huevo y carne en arepas sin crear una subclase para cada combinación. |
-| Strategy | Comportamiento | `strategy` | Cambia en tiempo de ejecución entre ningún descuento, descuento estudiantil y descuento de Black Friday. |
-| Builder | Creacional | `Builder` | Construye peticiones HTTP con campos opcionales mediante metodos encadenables. |
-| Abstract Factory | Creacional | `Abstract_Factory` | Crea familias de componentes de tema claro y oscuro sin mezclarlos. |
-| Command | Comportamiento | `Command` | Encapsula acciones de un editor de texto para permitir deshacer. |
+| Patrón           | Categoría      | Rama               | Descripción                                                                                                  |
+| ---------------- | -------------- | ------------------ | ------------------------------------------------------------------------------------------------------------ |
+| Adapter          | Estructural    | `adapter`          | Adapta `Intl.NumberFormat` para mostrar precios en pesos colombianos sin acoplar el cliente a la API nativa. |
+| Decorator        | Estructural    | `decorator`        | Combina adiciones de queso, huevo y carne en arepas sin crear una subclase para cada combinación.            |
+| Strategy         | Comportamiento | `strategy`         | Cambia en tiempo de ejecución entre ningún descuento, descuento estudiantil y descuento de Black Friday.     |
+| Builder          | Creacional     | `Builder`          | Construye peticiones HTTP con campos opcionales mediante metodos encadenables.                               |
+| Abstract Factory | Creacional     | `Abstract_Factory` | Crea familias de componentes de tema claro y oscuro sin mezclarlos.                                          |
+| Command          | Comportamiento | `Command`          | Encapsula acciones de un editor de texto para permitir deshacer.                                             |
+| Flyweight        | Estructural    | `flyweight`        | Comparte los datos de las especies de árboles para dibujar un bosque con menos objetos repetidos.            |
