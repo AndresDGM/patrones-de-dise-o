@@ -32,3 +32,5 @@ deno check ruta/al/archivo.ts
 | Adapter   | Estructural    | `adapter`   | Adapta `Intl.NumberFormat` para mostrar precios en pesos colombianos sin acoplar el cliente a la API nativa. |
 | Decorator | Estructural    | `decorator` | Combina adiciones de queso, huevo y carne en arepas sin crear una subclase para cada combinación.            |
 | Strategy  | Comportamiento | `strategy`  | Cambia en tiempo de ejecución entre ningún descuento, descuento estudiantil y descuento de Black Friday.     |
+| Command   | Comportamiento | `Command`   | Encapsula acciones de un editor de texto para permitir deshacer. |
+| Command   | Comportamiento | `Command`   | Encapsula acciones de un editor de texto para permitir deshacer. |
