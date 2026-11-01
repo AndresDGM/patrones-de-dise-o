@@ -120,3 +120,27 @@ export class ShoppingCart {
     return this.strategy.apply(subtotal);
   }
 }
+
+/**
+ * Imprime el total calculado por el carrito con el nombre de la estrategia.
+ *
+ * @param strategyName Nombre visible de la estrategia activa.
+ * @param cart Carrito cuyo total se desea mostrar.
+ * @returns No devuelve ningún valor; imprime el resultado en consola.
+ */
+export function printCheckout(strategyName: string, cart: ShoppingCart): void {
+  console.log("%c%s: $%s", colors.label, strategyName, cart.checkout());
+}
+
+// Ejecución
+const cart = new ShoppingCart();
+cart.addItem(100000);
+cart.addItem(50000);
+
+console.log("%cDescuentos del carrito", colors.title);
+cart.setStrategy(new NoDiscount());
+printCheckout("Sin descuento", cart);
+cart.setStrategy(new StudentDiscount());
+printCheckout("Descuento estudiantil", cart);
+cart.setStrategy(new BlackFridayDiscount());
+printCheckout("Descuento de Black Friday", cart);
