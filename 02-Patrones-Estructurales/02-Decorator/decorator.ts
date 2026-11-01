@@ -106,3 +106,99 @@ export abstract class ArepaDecorator implements Arepa {
     return this.arepa.getPrice();
   }
 }
+
+/**
+ * Agrega queso a una arepa.
+ */
+export class CheeseDecorator extends ArepaDecorator {
+  /**
+   * Crea el decorador de queso.
+   *
+   * @param arepa Arepa a la que se agregará queso.
+   */
+  constructor(arepa: Arepa) {
+    super(arepa);
+  }
+
+  /**
+   * Agrega queso a la descripción existente.
+   *
+   * @returns La descripción con queso.
+   */
+  override getDescription(): string {
+    return `${this.arepa.getDescription()} con queso`;
+  }
+
+  /**
+   * Suma el precio del queso al precio existente.
+   *
+   * @returns El precio con queso.
+   */
+  override getPrice(): number {
+    return this.arepa.getPrice() + 2000;
+  }
+}
+
+/**
+ * Agrega huevo a una arepa.
+ */
+export class EggDecorator extends ArepaDecorator {
+  /**
+   * Crea el decorador de huevo.
+   *
+   * @param arepa Arepa a la que se agregará huevo.
+   */
+  constructor(arepa: Arepa) {
+    super(arepa);
+  }
+
+  /**
+   * Agrega huevo a la descripción existente.
+   *
+   * @returns La descripción con huevo.
+   */
+  override getDescription(): string {
+    return `${this.arepa.getDescription()} con huevo`;
+  }
+
+  /**
+   * Suma el precio del huevo al precio existente.
+   *
+   * @returns El precio con huevo.
+   */
+  override getPrice(): number {
+    return this.arepa.getPrice() + 1500;
+  }
+}
+
+/**
+ * Agrega carne a una arepa.
+ */
+export class MeatDecorator extends ArepaDecorator {
+  /**
+   * Crea el decorador de carne.
+   *
+   * @param arepa Arepa a la que se agregará carne.
+   */
+  constructor(arepa: Arepa) {
+    super(arepa);
+  }
+
+  /**
+   * Agrega carne a la descripción existente.
+   *
+   * @returns La descripción con carne.
+   */
+  override getDescription(): string {
+    return `${this.arepa.getDescription()} con carne`;
+  }
+
+  /**
+   * Suma el precio de la carne al precio existente.
+   *
+   * @returns El precio con carne.
+   */
+  override getPrice(): number {
+    return this.arepa.getPrice() + 3500;
+  }
+}
