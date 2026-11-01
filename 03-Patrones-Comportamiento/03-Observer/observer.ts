@@ -156,3 +156,72 @@ export class AppSubscriber implements Observer {
     );
   }
 }
+
+/**
+ * Taquilla que publica la cantidad actual de boletas disponibles.
+ */
+export class TicketOffice implements Subject {
+  /** Observadores suscritos a la taquilla. */
+  private readonly observers: Observer[] = [];
+
+  /** Nombre del concierto. */
+  readonly concert: string;
+
+  /** Cantidad actual de boletas disponibles. */
+  private tickets = 0;
+
+  /**
+   * Crea una taquilla.
+   *
+   * @param concert Nombre del concierto.
+   */
+  constructor(concert: string) {
+    this.concert = concert;
+  }
+
+  /**
+   * Agrega un observador a la taquilla.
+   *
+   * @param observer Observador que recibirá los avisos.
+   * @returns No devuelve ningún valor.
+   */
+  subscribe(observer: Observer): void {
+    this.observers.push(observer);
+  }
+
+  /**
+   * Retira un observador de la taquilla.
+   *
+   * @param observer Observador que dejará de recibir avisos.
+   * @returns No devuelve ningún valor.
+   */
+  unsubscribe(observer: Observer): void {
+    const index = this.observers.indexOf(observer);
+
+    if (index !== -1) {
+      this.observers.splice(index, 1);
+    }
+  }
+
+  /**
+   * Envía el estado actual a todos los observadores.
+   *
+   * @returns No devuelve ningún valor.
+   */
+  notify(): void {
+    for (const observer of this.observers) {
+      observer.update(this.concert, this.tickets);
+    }
+  }
+
+  /**
+   * Libera boletas y notifica a los suscriptores.
+   *
+   * @param amount Cantidad de boletas liberadas.
+   * @returns No devuelve ningún valor.
+   */
+  releaseTickets(amount: number): void {
+    this.tickets += amount;
+    this.notify();
+  }
+}
