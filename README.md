@@ -27,7 +27,6 @@ deno check ruta/al/archivo.ts
 
 ## Patrones utilizados
 
-| Patrón    | Categoría   | Rama        | Descripción                                                                                                  |
-| --------- | ----------- | ----------- | ------------------------------------------------------------------------------------------------------------ |
-| Adapter   | Estructural | `adapter`   | Adapta `Intl.NumberFormat` para mostrar precios en pesos colombianos sin acoplar el cliente a la API nativa. |
-| Decorator | Estructural | `decorator` | Combina adiciones de queso, huevo y carne en arepas sin crear una subclase para cada combinación.            |
+| Patrón    | Categoría   | Rama        | Descripción                                                                                       |
+| --------- | ----------- | ----------- | ------------------------------------------------------------------------------------------------- |
+| Decorator | Estructural | `decorator` | Combina adiciones de queso, huevo y carne en arepas sin crear una subclase para cada combinación. |
