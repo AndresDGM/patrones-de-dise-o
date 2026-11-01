@@ -106,3 +106,31 @@ export class BicycleDeliveryService extends DeliveryService {
     return new Bicycle();
   }
 }
+
+/**
+ * Solicita una ciudad y selecciona el servicio de domicilio correspondiente.
+ *
+ * @returns No devuelve ningún valor; planifica el pedido seleccionado.
+ */
+export function main(): void {
+  let service: DeliveryService;
+  const city = prompt(
+    "¿En qué ciudad quieres el domicilio? (Bogota/Palmira)",
+  ) ?? Deno.args[0] ?? "Bogota";
+
+  switch (city) {
+    case "Bogota":
+      service = new MotorcycleDeliveryService();
+      break;
+    case "Palmira":
+      service = new BicycleDeliveryService();
+      break;
+    default:
+      throw new Error("Ciudad no válida");
+  }
+
+  service.planDelivery("Pedido de hamburguesa #101");
+}
+
+// Ejecución
+main();
