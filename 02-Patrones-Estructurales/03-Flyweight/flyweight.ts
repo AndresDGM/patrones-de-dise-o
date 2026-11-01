@@ -201,3 +201,52 @@ export class Forest {
     return this.treeTypeFactory.getCount();
   }
 }
+
+/**
+ * Planta árboles y muestra el resultado del uso de objetos compartidos.
+ *
+ * @returns No devuelve ningún valor; imprime la demostración en consola.
+ */
+export function main(): void {
+  const forest = new Forest();
+  const treeTypes = [
+    {
+      name: "Roble",
+      color: "#166534",
+      texture: "textura-de-roble-compartida",
+    },
+    {
+      name: "Pino",
+      color: "#15803d",
+      texture: "textura-de-pino-compartida",
+    },
+    {
+      name: "Cerezo",
+      color: "#be123c",
+      texture: "textura-de-cerezo-compartida",
+    },
+  ];
+
+  for (let index = 0; index < 1000; index++) {
+    const type = treeTypes[Math.floor(Math.random() * treeTypes.length)];
+    forest.plantTree(
+      Math.floor(Math.random() * 100),
+      Math.floor(Math.random() * 100),
+      type.name,
+      type.color,
+      type.texture,
+    );
+  }
+
+  console.log("%cPrimeros 5 árboles del bosque", colors.title);
+  forest.draw(5);
+  console.log("%cÁrboles creados: %s", colors.label, forest.getTreeCount());
+  console.log(
+    "%cTipos compartidos creados: %s",
+    colors.value,
+    forest.getTreeTypeCount(),
+  );
+}
+
+// Ejecución
+main();
