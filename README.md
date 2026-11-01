@@ -31,4 +31,4 @@ deno check ruta/al/archivo.ts
 | -------- | -------------- | ---------- | -------------------------------------------------------------------------------------------------------- |
 | Strategy  | Comportamiento | `strategy`  | Cambia en tiempo de ejecución entre ningún descuento, descuento estudiantil y descuento de Black Friday. |
 | Builder   | Creacional     | `Builder`   | Construye peticiones HTTP con campos opcionales mediante métodos encadenables. |
-| Abstract Factory | Creacional | `Abstract_Factory` | Crea familias de componentes de tema claro y oscuro sin mezclarlos. |
+| Abstract Factory | Creacional | `Abstract_Factory` | Crea familias de componentes de tema claro y oscuro sin mezclarlos |
