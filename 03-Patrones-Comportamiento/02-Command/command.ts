@@ -137,7 +137,8 @@ export class DeleteCommand implements Command {
    */
   execute(): void {
     this.deleted = this.editor.content.slice(-this.count);
-    this.editor.deleteLast(this.count);
+    const toDelete = this.count;
+    this.editor.deleteLast(toDelete);
   }
 
   /**
