@@ -225,3 +225,30 @@ export class TicketOffice implements Subject {
     this.notify();
   }
 }
+
+/**
+ * Suscribe fans, libera boletas y muestra el funcionamiento del patrón.
+ *
+ * @returns No devuelve ningún valor; imprime la demostración en consola.
+ */
+export function main(): void {
+  const ticketOffice = new TicketOffice("Festival de Música UCEVA");
+  const emailFan = new EmailSubscriber("Ana");
+  const smsFan = new SmsSubscriber("Luis");
+  const appFan = new AppSubscriber("María");
+
+  ticketOffice.subscribe(emailFan);
+  ticketOffice.subscribe(smsFan);
+  ticketOffice.subscribe(appFan);
+
+  console.log("%cPrimera liberación de boletas", colors.title);
+  ticketOffice.releaseTickets(200);
+
+  ticketOffice.unsubscribe(smsFan);
+
+  console.log("%cSegunda liberación de boletas", colors.title);
+  ticketOffice.releaseTickets(150);
+}
+
+// Ejecución
+main();
