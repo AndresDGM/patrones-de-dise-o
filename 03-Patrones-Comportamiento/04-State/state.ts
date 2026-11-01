@@ -226,3 +226,32 @@ export class MusicPlayer {
     return this.state.constructor.name;
   }
 }
+
+/**
+ * Ejecuta la secuencia de botones del ejercicio.
+ *
+ * @returns No devuelve ningún valor; imprime cada transición en consola.
+ */
+export function main(): void {
+  const player = new MusicPlayer("Canción de la UCEVA");
+
+  console.log("%cSecuencia del reproductor", colors.title);
+
+  player.play();
+  console.log("%cEstado: %s", colors.label, player.getStateName());
+
+  player.pause();
+  console.log("%cEstado: %s", colors.label, player.getStateName());
+
+  player.play();
+  console.log("%cEstado: %s", colors.label, player.getStateName());
+
+  player.stop();
+  console.log("%cEstado: %s", colors.label, player.getStateName());
+
+  player.pause();
+  console.log("%cEstado: %s", colors.label, player.getStateName());
+}
+
+// Ejecución
+main();
