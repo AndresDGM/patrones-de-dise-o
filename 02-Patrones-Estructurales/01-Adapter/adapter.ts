@@ -11,7 +11,7 @@
  * https://refactoring.guru/es/design-patterns/adapter
  */
 
-import { colors } from "../../../helpers/colors.ts";
+import { colors } from "../../helpers/colors.ts";
 
 /**
  * Define la operación de formato que necesita la tienda.
