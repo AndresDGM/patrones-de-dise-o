@@ -11,6 +11,8 @@
  * https://refactoring.guru/es/design-patterns/adapter
  */
 
+import { colors } from "../../../helpers/colors.ts";
+
 /**
  * Define la operación de formato que necesita la tienda.
  */
@@ -51,3 +53,27 @@ export class IntlCurrencyAdapter implements CurrencyFormatter {
     return this.formatter.format(amount);
   }
 }
+
+/**
+ * Imprime el nombre de un producto y su precio usando el formateador recibido.
+ *
+ * @param name Nombre del producto.
+ * @param price Precio numérico del producto.
+ * @param formatter Formateador que conoce el cliente mediante su interfaz.
+ * @returns No devuelve ningún valor; imprime el producto en consola.
+ */
+export function printProductPrice(
+  name: string,
+  price: number,
+  formatter: CurrencyFormatter,
+): void {
+  console.log("%c%s: %s", colors.label, name, formatter.format(price));
+}
+
+// Ejecución
+const formatter = new IntlCurrencyAdapter();
+
+console.log("%cPrecios de la tienda", colors.title);
+printProductPrice("Café colombiano", 12500, formatter);
+printProductPrice("Arepa de chocolo", 9500, formatter);
+printProductPrice("Chocolate caliente", 7000, formatter);
