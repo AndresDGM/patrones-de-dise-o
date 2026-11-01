@@ -175,7 +175,9 @@ export class EditorInvoker {
    */
   undo(): void {
     const command = this.history.pop();
-    command?.undo();
+    if (command) {
+      command.undo();
+    }
   }
 }
 
